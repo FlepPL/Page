@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Jakub Poleski, Sebastian Bedecki, Wiktor Kaszubski">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="Shortcut icon" href="Flep.png"/>
+    <script src="script.js"></script> 
+    <title>Flep - serwis ogłoszeniowy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href="main.html"><img class="logo-header" src="Flep.png" alt="logo"></a> 
+        <div id="search-header">
+            <form action="search.php" method="GET">
+                <input type="search" name="search" id="search-form" placeholder="Powiedz co chcesz znaleźć  " reqxuired="">
+                <input id="searchsubmit" type="submit" value="Znajdź">
+            </form>
+        </div>  
+
+            <ul class="menu">
+                <a class="bottom" href="aboutus.html">O nas</a>
+                <a class="bottom" href="login.php">Mój Flep</a>
+                <a class="bottom-ad" href="announcements.html">Dodaj ogłoszenie</a>
+            </ul>
+            <button class="burger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </button>
+
+                <script>
+                    const mobileNav = document.querySelector('.menu');
+                    const burgerIcon = document.querySelector('.burger');
+                    
+                    burgerIcon.addEventListener('click', function(){
+                        mobileNav.classList.toggle('active');
+                        burgerIcon.classList.toggle('active'); 
+                       
+                    })
+    
+                    </script>
+    </header>
+    <nav>
+        <h1 class="text-nav">Mój Flep</h1>
+    </nav>
+    <div id="ogloszenia">
+        <div id="login-window">
+            <ol class="login">
+                <li><a class="login-hover" href="login.php" >Zaloguj się </a></li>
+                <li><a class="login-hover" href="register.html" >Rejestracja</a></li>
+            </ol>
+            <div id="login-form">
+                <form action="register.php" method="POST" name="rejestr">
+                    <br>
+                    <p class="input-form" >Imie:</p> 
+                    <input class="input-form" type="text" name="name" id="name" required pattern=".{3,}" > <br><br>
+                    <p class="input-form">Nazwisko:</p> 
+                    <input class="input-form" type="text" name="lastname" id="lastname" required pattern=".{3,}" > <br><br>
+                    <p class="input-form">Data urodzenia:</p> 
+                    <input class="input-form" type="date" name="date" required> <br><br>
+                    <p class="input-form">E-mail:</p> 
+                    <input class="input-form" type="email" name="email" required pattern=".{3,}" > <br><br>
+                    <p class="input-form">Hasło:</p> 
+                    <input class="input-form" type="password" name="password" required pattern=".{6,}" > <br><br>
+                    <div id="rest">
+                            <p style="font-size:smaller"> <input type="checkbox" name="agreement" required>
+                                Wyrażam zgodę na używanie przez Grupę FLEP sp. z o.o. środków komunikacji elektronicznej oraz
+                                telekomunikacyjnych urządzeń końcowych w celu przesyłania mi informacji handlowych oraz prowadzenia marketingu
+                                (np. newsletter, wiadomości SMS) przez Grupę FLEP sp. z o.o., podmioty powiązane i partnerów biznesowych.
+                                Moja zgoda obejmuje numery telefonów i adresy e-mail wykorzystywane podczas korzystania z usług Grupy FLEP Sp. z o.o. 
+                                Wyrażoną zgodę można wycofać lub ograniczyć w dowolnej chwili za pomocą odpowiednich ustawień konta lub zgłaszając
+                                nam takie żądanie.</p>
+                        <br>
+                        <input class="submit-form" id="submit" type="submit" value="Zarejestruj się" onClick="datacheck()">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div id="footer-links">
+            <a class="przyciski" href="">Pomoc</a><br>
+            <a class="przyciski" href="">Blog</a><br>
+            <a class="przyciski" href="">Regulamin</a><br>
+            <a class="przyciski" href="">Polityka prywatności</a>
+        </div>
+        <div id="footer-links-2">
+            <a class="przyciski" href="">Jak działa Flep.pl</a><br>
+            <a class="przyciski" href="">Zasady bezpieczeństwa</a><br>
+            <a class="przyciski" href="">Ustawienia plików cookie</a><br>
+            <a class="przyciski" href="">Kariera</a>
+        </div>
+        <div id="footer-icons">
+            <img alt="Google Play" class="link-to-app" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQYBOZ-3MyRTt6tELmeqRn6kNmrtbJpiT23dtUl0s6Un45WA34h">
+            <img alt="Apple Store" class="link-to-app" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKPXGeVuLqCdqNDe5XDpg6bJraDyEAKo08ui_yXvnd2siTn_0n ">
+            <hr><p class="p-footer">Darmowa aplikacja na Twój telefon</p>
+        </div>
+    </footer> 
+</body>
+</html>
+
+
