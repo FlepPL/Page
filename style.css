@@ -27,7 +27,7 @@ nav{
 }
 #ogloszenia{
     height: auto;
-    background-color: #941616;
+    background-color: #941616b6;
     padding: 20px 0;
 }
 #announcements{
@@ -45,9 +45,6 @@ nav{
     width: 100%;
     background-color: #E33E5A;
 }
-footer{
-    height: auto;
-}
 #rodo{
     position: static;
     bottom: 0px;
@@ -61,7 +58,7 @@ footer{
     z-index: 1;
 }
 .bottom{
-    padding: 0 3px;
+    padding: 0 5px;
 }
 .buttonrodo{
     margin: 5px 0;
@@ -73,7 +70,7 @@ footer{
     text-align: center;
     padding: 5px;
     border-radius: 10%;
-  }
+}
 .buttonrodo:hover{
     background-color: rgb(255, 255, 255);
     color: black;
@@ -86,13 +83,13 @@ footer{
     letter-spacing: 1px;
     white-space: nowrap;     
 }
-.bottom-ad{ 
-    margin: 19px 10px;
+#bottom-ad{ 
+    margin: -3px 10px;
     padding: 7px 22px;
     background: #fff;
     color: #002f34;
     float: right;
-    font-size: 8px;
+    font-size: 11px;
 }
 .logo-header{
     float: left;
@@ -292,18 +289,18 @@ ul {
     transition: .3s ease-in-out;
 }
 
-.a:hover::after {
-    width: 100%;
+.box{
+    display: inline-block;
+    background: yellowgreen;
+    margin: 10px 50px;
 }
-
-.bottom-ad{
-    margin: -3px 10px;
-    font-size: 11px;
+.container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(20%,1fr));
+    gap: 50px;
+    grid-auto-rows: 500px;
 }
-.bottom{
-    margin: 0 5px;
-}
-  @media only screen and (max-width: 769px) {
+@media only screen and (max-width: 769px) {
     .burger {
         display: block;
         transition: .3s ease-in-out;

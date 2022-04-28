@@ -17,7 +17,7 @@
 </head>
 <body>
     <header>
-        <a href="main.html"><img class="logo-header" src="Flep.png" alt="logo"></a> 
+        <a href="main.php"><img class="logo-header" src="Flep.png" alt="logo"></a> 
         <div id="search-header">
             <form action="search.php" method="GET">
                 <input type="search" name="search" id="search-form" placeholder="Powiedz co chcesz znaleźć  " reqxuired="">
@@ -51,20 +51,20 @@
     <nav>
         <h1 class="text-nav">Ogłoszenia</h1>
     </nav>
+
     <div id="ogloszenia">
-        <div id="announcements">
-            <div id="user-ad">
-                <img alt="uzytkonik" class="user-photo" src="https://placehold.co/130x130">
+        <div class="container">
+            <div class="box">
+                <h1>Hello suss</h1>
             </div>
-            <div id="text-area">
-               <h2>What is Lorem Ipsum?</h2><br>
-                <p></p>   
-            </div>
-            <div id="opinion">
-                <img alt="uzytkonik" class="user-photo-2" src="https://placehold.co/130x130">
-            </div>       
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
         </div>
+
     </div>
+
         <div id="rodo" onload="showrodo();">
            <p>Ta strona używa cookie i innych technologii. Korzystając z niej wyrażasz zgodę na ich używanie, zgodnie z aktualnymi ustawieniami przeglądarki. Możesz je zmienić w dowolnym momencie <a href="https://wezwijfachowca.pl/wp-content/uploads/2019/11/rodo-urban-1.pdf">Szczegółowa polityka - RODO</a></a></p>
            <input tpye="button" class="buttonrodo" onclick="closerodo()" value="Rozumiem">

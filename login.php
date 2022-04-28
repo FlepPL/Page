@@ -18,7 +18,7 @@
 <body>
     <?php if(empty($_SESSION['email'])): ?>
         <header>
-            <a href="main.html"><img class="logo-header" src="Flep.png" alt="logo"></a> 
+            <a href="main.php"><img class="logo-header" src="Flep.png" alt="logo"></a> 
             <div id="search-header">
                 <form action="search.php" method="GET">
                     <input type="search" name="search" id="search-form" placeholder="Powiedz co chcesz znaleźć  " reqxuired="">
@@ -99,7 +99,7 @@
     
     <?php else:  ?>
         <header>
-            <a href="main.html"><img class="logo-header" src="Flep.png" alt="logo"></a> 
+            <a href="main.php"><img class="logo-header" src="Flep.png" alt="logo"></a> 
             <div id="search-header">
                 <form action="search.php" method="GET">
                     <input type="search" name="search" id="search-form" placeholder="Powiedz co chcesz znaleźć  " reqxuired="">

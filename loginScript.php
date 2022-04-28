@@ -4,7 +4,7 @@
     $login = $_POST["login"];
     $password = $_POST["password"]; 
     $checkdata = "SELECT email FROM uzytkownik WHERE email = '$login' AND haslo = '$password';"; 
-    $checkuserdata = "SELECT imie,nazwisko,email,telefon FROM uzytkownik WHERE email = '$login' AND haslo = '$password';"; 
+    $checkuserdata = "SELECT id_uzytkownika,imie,nazwisko,email,telefon FROM uzytkownik WHERE email = '$login' AND haslo = '$password';"; 
     $result = mysqli_query($sql, $checkdata); 
     if($login == null || $password == null){
         echo "<script type='text/javascript'>alert('Wprowadz popawnie pola');</script>";
@@ -15,6 +15,7 @@
             $_SESSION['email'] = $login;
             $wynik = mysqli_query($sql, $checkuserdata); 
             while($row = mysqli_fetch_array($wynik)){
+                $_SESSION['id'] = $row['id_uzytkownika'];
                 $_SESSION['imie'] = $row['imie'];
                 $_SESSION['nazwisko'] = $row['nazwisko'];
                 $_SESSION['email'] = $row['email'];

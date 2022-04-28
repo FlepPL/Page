@@ -2,7 +2,7 @@ CREATE DATABASE Flep;
 USE Flep
 
 ALTER DATABASE Flep CHARACTER SET utf8 COLLATE utf8_polish_ci;
-
+CREATE USER 'JakubPoleski'@'localhost' IDENTIFIED BY 'password'
 CREATE USER 'JakubPoleski'@'localhost' IDENTIFIED BY 'password';
 CREATE USER 'SebastianBedecki'@'localhost' IDENTIFIED BY 'password';
 CREATE USER 'WiktorKaszubski'@'localhost' IDENTIFIED BY 'password';
@@ -22,10 +22,10 @@ CREATE TABLE uzytkownik(
 
 CREATE TABLE ogloszenie(
 	id_ogloszenia INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  id_uzytkownika INT NOT NULL FOREIGN KEY,
+  id_uzytkownika INT NOT NULL,
 	tytul VARCHAR(70) NOT NULL,
   kategoria VARCHAR(15) NOT NULL,
-	opis VARCHAR(1500) NOT NULL
+	opis VARCHAR(1500) NOT NULL,
   lokalizacja VARCHAR(20) NOT NULL,
   cena FLOAT(6),
   zdjecia BLOB,
@@ -37,13 +37,18 @@ CREATE TABLE zamowienia(
   data_zalozenia_zamowienia date DEFAULT NULL,
   data_wyslania date DEFAULT NULL,
   koszt_wyslki DECIMAL(5,2) DEFAULT NULL,
-  id_uzytkownika INT(11) DEFAULT NULL FOREIGN KEY,
-  id_faktury INT(11) DEFAULT NULL FOREIGN KEY
+  id_uzytkownika INT(11) DEFAULT NULL,
+  id_faktury INT(11) DEFAULT NULL 
 )
 
 CREATE TABLE faktura(
   id_faktury INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
   nr_faktury INT(11) NOT NULL,
-  sposob_platnosci VARCHAR DEFAULT NULL,
+  sposob_platnosci VARCHAR(20) DEFAULT NULL,
   data_wystawienia_faktury date DEFAULT NULL
 )
+
+ALTER TABLE ogloszenie
+ADD FOREIGN KEY (id_uzytkownika)
+REFERENCES uzytkownik(id_uzytkownika)
+ 

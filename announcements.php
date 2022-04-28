@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="pl">
     <head>
@@ -15,28 +16,28 @@
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
     </head>
     <body>
-        <?php if(empty($_SESSION['email'])):  include 'login.php'?>
-            <?php else:  ?>
+        <?php if(!empty($_SESSION['email'])): ?>
             <header>
-                <a href="main.html"><img class="logo-header" src="Flep.png" alt="logo"></a> 
-        <div id="search-header">
-            <form action="search.php" method="GET">
-                <input type="search" name="search" id="search-form" placeholder="Powiedz co chcesz znaleźć  " reqxuired="">
-                <input id="searchsubmit" type="submit" value="Znajdź">
-            </form>
-        </div>  
-
-            <ul class="menu">
-                <a class="bottom" href="main.php">Strona Główna</a>
-                <a class="bottom" href="aboutus.html">O nas</a>
-                <a class="bottom" href="login.php">Mój Flep</a>
-            </ul>
-            <button class="burger">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </button>
-
+                <a href="main.php"><img class="logo-header" src="Flep.png" alt="logo"></a> 
+                <div id="search-header">
+                    <form action="search.php" method="GET">
+                        <input type="search" name="search" id="search-form" placeholder="Powiedz co chcesz znaleźć  " reqxuired="">
+                        <input id="searchsubmit" type="submit" value="Znajdź">
+                    </form>
+                </div>  
+                
+                <ul class="menu">
+                    <a href="main.php" class="bottom">Strona Główna</a>
+                    <a href="aboutus.html" class="bottom">O nas</a>
+                    <a href="login.php" class="bottom">Mój Flep</a>
+                    <a href="logout.php" class="bottom" >Wyloguj</a>
+                </ul>
+                <button class="burger">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </button>
+                
                 <script>
                     const mobileNav = document.querySelector('.menu');
                     const burgerIcon = document.querySelector('.burger');
@@ -44,9 +45,9 @@
                     burgerIcon.addEventListener('click', function(){
                         mobileNav.classList.toggle('active');
                         burgerIcon.classList.toggle('active'); 
-                       
+                        
                     })
-    
+                    
                     </script>
     </header>
     <nav>
@@ -85,20 +86,20 @@
                     <input class="input-form" type="text" required name="cena"> <br><br><hr><br><br>
                     <div id="rule">
                         <p> <input type="checkbox" required>
-                            Wyrażam zgodę na używanie przez Grupę Flep sp. z o.o. środków komunikacji elektronicznej oraz
-                             telekomunikacyjnych urządzeń końcowych w celu przesyłania mi informacji handlowych oraz 
-                             prowadzenia marketingu (np. newsletter, wiadomości SMS) przez Grupę Flep sp. z o.o., 
-                             podmioty powiązane i partnerów biznesowych.</p>
+                        Wyrażam zgodę na używanie przez Grupę Flep sp. z o.o. środków komunikacji elektronicznej oraz
+                        telekomunikacyjnych urządzeń końcowych w celu przesyłania mi informacji handlowych oraz 
+                        prowadzenia marketingu (np. newsletter, wiadomości SMS) przez Grupę Flep sp. z o.o., 
+                        podmioty powiązane i partnerów biznesowych.</p>
                     </div><br><br> 
                     <input class="submit-form" type="submit" value="Dodaj ogłoszenie">
                 </form>
             </div>
         </div>
     </div>
-        <div id="rodo" onload="showrodo();">
-           <p>Ta strona używa cookie i innych technologii. Korzystając z niej wyrażasz zgodę na ich używanie, zgodnie z aktualnymi ustawieniami przeglądarki. Możesz je zmienić w dowolnym momencie <a href="https://wezwijfachowca.pl/wp-content/uploads/2019/11/rodo-urban-1.pdf">Szczegółowa polityka - RODO</a></a></p>
-           <input tpye="button" class="buttonrodo" onclick="closerodo()" value="Rozumiem">
-        </div>
+    <div id="rodo" onload="showrodo();">
+        <p>Ta strona używa cookie i innych technologii. Korzystając z niej wyrażasz zgodę na ich używanie, zgodnie z aktualnymi ustawieniami przeglądarki. Możesz je zmienić w dowolnym momencie <a href="https://wezwijfachowca.pl/wp-content/uploads/2019/11/rodo-urban-1.pdf">Szczegółowa polityka - RODO</a></a></p>
+        <input tpye="button" class="buttonrodo" onclick="closerodo()" value="Rozumiem">
+    </div>
     <footer>
         <div id="footer-links">
             <a class="przyciski" href="">Pomoc</a><br>
@@ -118,9 +119,12 @@
             <hr><p class="p-footer">Darmowa aplikacja na Twój telefon</p> 
         </div>
     </footer> 
+    <?php else:  ?>
+    <?php header('Location: login.php'); ?>
+    <?php endif; ?>
 </body>
-            
-<?php endif; ?>
+
+
 </html>
 
 
