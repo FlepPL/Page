@@ -7,7 +7,7 @@
     $nazwisko = $_POST["lastname"]; 
     $email = $_POST["email"];
     $haslo = $_POST["password"];
-    $dodaj = "INSERT INTO uzytkownik (imie,nazwisko,email,haslo) values ('".$imieAutora."', '".$nazwisko."', '".$email."', '".$haslo."');"; 
+    $dodaj = "INSERT INTO uzytkownik (imie,nazwisko,email,haslo) VALUES ('".$imieAutora."', '".$nazwisko."', '".$email."', '".$haslo."');"; 
     $emailBob = "SELECT email FROM uzytkownik WHERE email = '$email';";
     $result = mysqli_query($sql, $emailBob); 
     if (mysqli_num_rows($result) == 0){

@@ -14,7 +14,13 @@
             $_SESSION['bob'] = false;
             $_SESSION['email'] = $login;
             $wynik = mysqli_query($sql, $checkuserdata); 
+            while($row = mysqli_fetch_array($wynik)){
+                $_SESSION['imie'] = $row['imie'];
+                $_SESSION['nazwisko'] = $row['nazwisko'];
+                $_SESSION['email'] = $row['email'];
+                $_SESSION['telefon'] = $row['telefon'];
 
+            }
             echo "<script type='text/javascript'>alert('Zalogowano Pomyślnie');</script>";
             include 'main.php';
         }else{
@@ -23,4 +29,5 @@
         }
 
     }
-    ?>
+    mysqli_close($sql);
+?>

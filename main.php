@@ -28,7 +28,7 @@
             <ul class="menu">
                 <a class="bottom" href="aboutus.html">O nas</a>
                 <a class="bottom" href="login.php">Mój Flep</a>
-                <a class="bottom" href="announcements.html">Dodaj ogłoszenie</a>
+                <a class="bottom" href="announcements.php">Dodaj ogłoszenie</a>
             </ul>
             <button class="burger">
                 <div class="line"></div>

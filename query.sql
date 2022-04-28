@@ -27,8 +27,8 @@ CREATE TABLE ogloszenie(
   kategoria VARCHAR(15) NOT NULL,
 	opis VARCHAR(1500) NOT NULL
   lokalizacja VARCHAR(20) NOT NULL,
-  zdjecia BLOB,
   cena FLOAT(6),
+  zdjecia BLOB,
   data date 
 )
 

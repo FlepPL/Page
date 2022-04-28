@@ -26,9 +26,9 @@
                 </form>
             </div>  
             <ul>
-                <a class="bottom" href="main.php">Strona Głowna</a>
+                <a class="bottom" href="main.php">Strona Główna</a>
                 <a class="bottom" href="aboutus.html">O nas</a>
-                <a class="bottom" href="announcements.html">Dodaj ogłoszenie</a>
+                <a class="bottom" href="announcements.php">Dodaj ogłoszenie</a>
             </ul>
             <button class="burger">
                 <div class="line"></div>
@@ -107,9 +107,11 @@
                 </form>
             </div>  
             <ul>
-                <a class="bottom" href="aboutus.html">O nas</a>
+                <a class="bottom" href="announcements.php">Dodaj ogłoszenie</a>
                 <a class="bottom" href="login.php">Mój Flep</a>
-                <a class="bottom-ad" href="announcements.html">Dodaj ogłoszenie</a>
+                <a class="bottom" href="aboutus.html">O nas</a>
+                <a href="logout.php" class="bottom" >Wyloguj</a>
+
             </ul>
             <button class="burger">
                 <div class="line"></div>
@@ -133,8 +135,7 @@
     </nav>
     <div id="ogloszenia">
         <div id="login-window">
-            <p>Hello sas, <?=$_SESSION['email']?> </p>
-            <a href="logout.php">Wyloguj</a>
+            <p>Witaj, <?=$_SESSION['imie']?> </p>
         </div>
     </div>
     <footer>

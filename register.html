@@ -25,9 +25,9 @@
         </div>  
 
             <ul class="menu">
+                <a class="bottom" href="main.php">Strona Główna</a>
                 <a class="bottom" href="aboutus.html">O nas</a>
-                <a class="bottom" href="login.php">Mój Flep</a>
-                <a class="bottom-ad" href="announcements.html">Dodaj ogłoszenie</a>
+                <a class="bottom" href="announcements.html">Dodaj ogłoszenie</a>
             </ul>
             <button class="burger">
                 <div class="line"></div>
@@ -59,16 +59,18 @@
             <div id="login-form">
                 <form action="register.php" method="POST" name="rejestr">
                     <br>
-                    <p class="input-form" >Imie:</p> 
-                    <input class="input-form" type="text" name="name" id="name" required pattern=".{3,}" > <br><br>
-                    <p class="input-form">Nazwisko:</p> 
-                    <input class="input-form" type="text" name="lastname" id="lastname" required pattern=".{3,}" > <br><br>
+                    <p class="input-form" >Imie (Min. 3 znaki):</p> 
+                    <input class="input-form" type="text" name="name" id="name" required pattern=".{3,20}" > <br><br>
+                    <p class="input-form">Nazwisko (Min. 3 znaki):</p> 
+                    <input class="input-form" type="text" name="lastname" id="lastname" required pattern=".{3,20}" > <br><br>
                     <p class="input-form">Data urodzenia:</p> 
                     <input class="input-form" type="date" name="date" required> <br><br>
-                    <p class="input-form">E-mail:</p> 
-                    <input class="input-form" type="email" name="email" required pattern=".{3,}" > <br><br>
-                    <p class="input-form">Hasło:</p> 
-                    <input class="input-form" type="password" name="password" required pattern=".{6,}" > <br><br>
+                    <p class="input-form">E-mail (Min. 5 znaki, znak "@"):</p> 
+                    <input class="input-form" type="email" name="email" required pattern=".{3,30}" > <br><br>
+                    <p class="input-form">Numer telefonu:</p> 
+                    <input class="input-form" type="email" name="email" placeholder="+48" required pattern=".{9,12}" > <br><br>
+                    <p class="input-form">Hasło (Min. 6 znaki):</p> 
+                    <input class="input-form" type="password" name="password" required pattern=".{6,25}" > <br><br>
                     <div id="rest">
                             <p style="font-size:smaller"> <input type="checkbox" name="agreement" required>
                                 Wyrażam zgodę na używanie przez Grupę FLEP sp. z o.o. środków komunikacji elektronicznej oraz
