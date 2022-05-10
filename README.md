@@ -2,7 +2,7 @@
 <hr>
 <h2>Spis treści</h2>
 <ul>
-    # Autorzy
+    <h5>Autorzy</h5>
         <li>Jakub Poleski - CEO </li>
         <li>Sebastian Bedecki</li>
         <li>Wiktor Kaszubki</li>
