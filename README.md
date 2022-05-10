@@ -2,11 +2,10 @@
 <hr>
 <h2>Spis treści</h2>
 <ul>
-    <li>Autorzy
+    #Autorzy
         <li>Jakub Poleski - CEO </li>
         <li>Sebastian Bedecki</li>
         <li>Wiktor Kaszubki</li>
-    </li>
-    <li>Używane technologie</li>
+    <hr>
     <li>Git Notes</li>
 </ul>
