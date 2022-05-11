@@ -55,34 +55,34 @@
     <div id="ogloszenia">
         <div class="container">
             <?php
+                $id =  $_GET['id'];
                 $sql = mysqli_connect('localhost', 'root', '', 'flep');
-                $pytanie = "SELECT COUNT(id_ogloszenia) FROM ogloszenie;";
+                $pytanie = "SELECT COUNT(id_ogloszenia) FROM ogloszenie";
                 $sas = mysqli_query($sql, $pytanie); 
-                
-                while($wiersz = mysqli_fetch_array($sas)) $liczba = $wiersz['COUNT(id_ogloszenia)'];
-                
-                for ($a=1; $a<$liczba+1; $a++) {
-                    $zapytanie = "SELECT * FROM ogloszenie WHERE id_ogloszenia = $a;";
+
+                    $zapytanie = "SELECT * FROM ogloszenie INNER JOIN uzytkownik ON ogloszenie.id_uzytkownika = uzytkownik.id_uzytkownika WHERE id_ogloszenia = $id;";
                     $maks = mysqli_query($sql, $zapytanie);  
-                    
-                    while($laskowski = mysqli_fetch_array($maks)) {
+                    while($laskowski = mysqli_fetch_array($maks)){
                         $tytul = $laskowski['tytul'];
                         $kategoria = $laskowski['kategoria'];
                         $opis = $laskowski['opis'];
+                        $lokalizacja = $laskowski['lokalizacja'];
+                        $cena = $laskowski['cena'];
+                        $telefon = $laskowski['telefon'];
                      }
                            
-                    echo("
+                    print("
                     <div class='box'>
-                    <a class='sus' href='tak.php?id=$a'> 
-                    <h2>$tytul</h2>
+                    <h2>$tytul</h2><br>
                     <h3>$kategoria</h3><hr><br>
-                    <p>$opis</p><br>
-                    <a class='sus2' href='tak.php?id=$a'> 
-                    Sprawdz
+                    <p>Opis: $opis</p><br>
+                    <p>Lokalizacja: $lokalizacja</p><br>
+                    <p>Cena: $cena PLN</p><br>
+                    <p>Telefon: +48 $telefon </p><br>
                     </a>
                     </div>
                     ");
-                }
+                
 
             ?>
 

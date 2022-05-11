@@ -22,15 +22,24 @@ CREATE TABLE uzytkownik(
 
 CREATE TABLE ogloszenie(
 	id_ogloszenia INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  telefon INT(9) NOT NULL,
   id_uzytkownika INT NOT NULL,
 	tytul VARCHAR(70) NOT NULL,
   kategoria VARCHAR(15) NOT NULL,
 	opis VARCHAR(1500) NOT NULL,
   lokalizacja VARCHAR(20) NOT NULL,
   cena FLOAT(6),
+  ogloszenie_telefon INT(9) NOT NULL,
   zdjecia BLOB,
   data date 
 )
+
+
+ALTER TABLE ogloszenie
+ADD FOREIGN KEY (id_uzytkownika)
+REFERENCES uzytkownik(id_uzytkownika)
+
+
 
 CREATE TABLE zamowienia(
   id_zamowienia INT(11) NOT NULL,
@@ -47,8 +56,4 @@ CREATE TABLE faktura(
   sposob_platnosci VARCHAR(20) DEFAULT NULL,
   data_wystawienia_faktury date DEFAULT NULL
 )
-
-ALTER TABLE ogloszenie
-ADD FOREIGN KEY (id_uzytkownika)
-REFERENCES uzytkownik(id_uzytkownika)
- 
+  

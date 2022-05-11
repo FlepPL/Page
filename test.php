@@ -4,4 +4,5 @@
     echo $_SESSION['imie'].'<br>';
     echo $_SESSION['nazwisko'].'<br>';
     echo $_SESSION['id'].'<br>';
+    echo $_GET['id'];
 ?>

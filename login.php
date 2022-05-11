@@ -8,7 +8,7 @@
     <meta name="keywords" content="HTML, CSS, JavaScript">
     <meta name="author" content="Jakub Poleski, Sebastian Bedecki, Wiktor Kaszubski">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="Shortcut icon" href="Flep.png"/>
+    <link rel="Shortcut icon" href="Image/Flep.png"/>
     <script src="script.js"></script> 
     <title>Flep - serwis ogłoszeniowy</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,7 @@
 <body>
     <?php if(empty($_SESSION['email'])): ?>
         <header>
-            <a href="main.php"><img class="logo-header" src="Flep.png" alt="logo"></a> 
+        <a href="main.php"><img class="logo-header" src="Image/Flep.png" alt="logo"></a> 
             <div id="search-header">
                 <form action="search.php" method="GET">
                     <input type="search" name="search" id="search-form" placeholder="Powiedz co chcesz znaleźć  " reqxuired="">
@@ -27,7 +27,7 @@
             </div>  
             <ul>
                 <a class="bottom" href="main.php">Strona Główna</a>
-                <a class="bottom" href="aboutus.html">O nas</a>
+                <a class="bottom" href="https://github.com/FlepPL">O nas</a>
                 <a class="bottom" href="announcements.php">Dodaj ogłoszenie</a>
             </ul>
             <button class="burger">
@@ -79,7 +79,7 @@
         <div id="footer-links">
             <a class="przyciski" href="">Pomoc</a><br>
             <a class="przyciski" href="">Blog</a><br>
-            <a class="przyciski" href="">Regulamin</a><br>
+            <a class="przyciski" href="https://docs.google.com/document/d/1vS1vbRqMaGbBcUW11fQHK5V-q9R0OR5d_j2FJnSbMKg/edit?usp=sharing">Regulamin</a><br>
             <a class="przyciski" href="">Polityka prywatności</a>
         </div>
         <div id="footer-links-2">
@@ -99,7 +99,7 @@
     
     <?php else:  ?>
         <header>
-            <a href="main.php"><img class="logo-header" src="Flep.png" alt="logo"></a> 
+        <a href="main.php"><img class="logo-header" src="Image/Flep.png" alt="logo"></a> 
             <div id="search-header">
                 <form action="search.php" method="GET">
                     <input type="search" name="search" id="search-form" placeholder="Powiedz co chcesz znaleźć  " reqxuired="">
@@ -109,7 +109,7 @@
             <ul>
                 <a class="bottom" href="announcements.php">Dodaj ogłoszenie</a>
                 <a class="bottom" href="login.php">Mój Flep</a>
-                <a class="bottom" href="aboutus.html">O nas</a>
+                <a class="bottom" href="https://github.com/FlepPL">O nas</a>
                 <a href="logout.php" class="bottom" >Wyloguj</a>
 
             </ul>
@@ -135,21 +135,23 @@
     </nav>
     <div id="ogloszenia">
         <div id="login-window">
-            <p>Witaj, <?=$_SESSION['imie']?> </p>
+            <p>Witaj, <?=$_SESSION['imie']?> </p><br>
+            <p>Ilość twoich ogłoszeń,  </p>
+             
         </div>
     </div>
     <footer>
         <div id="footer-links">
-            <a class="przyciski" href="">Pomoc</a><br>
-            <a class="przyciski" href="">Blog</a><br>
-            <a class="przyciski" href="">Regulamin</a><br>
-            <a class="przyciski" href="">Polityka prywatności</a>
+            <a class="przyciski" href="https://docs.google.com/document/d/1T0hECqJWrENLCwvt8aeiGTExSJkGIKmbj9-BE4FJifE/edit?usp=sharing">Pomoc</a><br>
+            <a class="przyciski" href="aboutus.html">Blog</a><br>
+            <a class="przyciski" href="https://docs.google.com/document/d/1vS1vbRqMaGbBcUW11fQHK5V-q9R0OR5d_j2FJnSbMKg/edit?usp=sharing">Regulamin</a><br>
+            <a class="przyciski" href="https://docs.google.com/document/d/13MFTjvmuqyA2UvlPa4bpNi46N4FfNrQQHyfhD45Kscc/edit?usp=sharing">Polityka prywatności</a>
         </div>
         <div id="footer-links-2">
-            <a class="przyciski" href="">Jak działa Flep.pl</a><br>
-            <a class="przyciski" href="">Zasady bezpieczeństwa</a><br>
-            <a class="przyciski" href="">Ustawienia plików cookie</a><br>
-            <a class="przyciski" href="">Kariera</a>
+            <a class="przyciski" href="https://docs.google.com/document/d/1Z_BOtt0y5D7IUXyyqpG0eEjoTRbWuTtZo9DqJH7zZ_M/edit">Jak działa Flep.pl</a><br>
+            <a class="przyciski" href="https://docs.google.com/document/d/14AoSo_oWG5E6EBePkGywRt00FgvDm6SKHqoYKrclhPM/edit?usp=sharing">Zasady bezpieczeństwa</a><br>
+            <a class="przyciski" href="https://docs.google.com/document/d/1BBSzC26kqkMTbe7NC8XcMdFxrK3rl2RFn1hhk4CqwB0/edit?usp=sharing">Ustawienia plików cookie</a><br>
+            <a class="przyciski" href="https://github.com/FlepPL">Kariera</a>
         </div>
         <div id="footer-icons">
             <img alt="Google Play" class="link-to-app" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQYBOZ-3MyRTt6tELmeqRn6kNmrtbJpiT23dtUl0s6Un45WA34h">
