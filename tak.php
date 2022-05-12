@@ -61,15 +61,21 @@
                 $sas = mysqli_query($sql, $pytanie); 
 
                     $zapytanie = "SELECT * FROM ogloszenie INNER JOIN uzytkownik ON ogloszenie.id_uzytkownika = uzytkownik.id_uzytkownika WHERE id_ogloszenia = $id;";
-                    $maks = mysqli_query($sql, $zapytanie);  
+                    $maks = mysqli_query($sql, $zapytanie);    
                     while($laskowski = mysqli_fetch_array($maks)){
                         $tytul = $laskowski['tytul'];
                         $kategoria = $laskowski['kategoria'];
                         $opis = $laskowski['opis'];
                         $lokalizacja = $laskowski['lokalizacja'];
                         $cena = $laskowski['cena'];
-                        $telefon = $laskowski['telefon'];
                      }
+
+                     $zapytanie2 = "SELECT * FROM ogloszenie WHERE id_ogloszenia = $id;";
+                     $maks2 = mysqli_query($sql, $zapytanie2);  
+                     while($chad = mysqli_fetch_array($maks2)){
+                         $telefon = $chad['telefon'];
+                      }
+                            
                            
                     print("
                     <div class='box'>

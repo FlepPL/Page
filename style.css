@@ -302,6 +302,7 @@ ul {
     gap: 1em;
     grid-auto-rows: auto;
 }
+
 @media only screen and (max-width: 600px) {
     ul { top: 5vh;}
 }

@@ -10,7 +10,7 @@
     $cena = $_POST["cena"]; 
     $telefon = $_POST["numer"]; 
     $lokalizacja = $_POST["location"]; 
-    $ogloszonko = "INSERT INTO ogloszenie (id_uzytkownika,tytul,kategoria,opis,lokalizacja,cena,telefon) VALUES ('".$id."','".$tytul."', '".$kategoria."', '".$opis."', '".$lokalizacja."', '".$cena."', '".$telefon."');"; 
+    $ogloszonko = "INSERT INTO ogloszenie (id_uzytkownika,tytul,kategoria,opis,lokalizacja,cena,`telefon`) VALUES ('".$id."','".$tytul."', '".$kategoria."', '".$opis."', '".$lokalizacja."', '".$cena."', '".$telefon."');"; 
 
     $bob = mysqli_query($sql, $ogloszonko); 
     echo "<script type='text/javascript'>alert('Stworzono nowe ogłoszenie');</script>";

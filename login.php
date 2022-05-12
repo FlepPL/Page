@@ -53,7 +53,7 @@
     <div id="ogloszenia">
         <div id="login-window">
             <ol class="login">
-                <li><a class="login-hover" href="login.html" >Zaloguj się </a></li>
+                <li><a class="login-hover" href="login.php" >Zaloguj się </a></li>
                 <li><a class="login-hover" href="register.html" >Rejestracja</a></li>
             </ol>
             <div id="login-form">
@@ -136,8 +136,14 @@
     <div id="ogloszenia">
         <div id="login-window">
             <p>Witaj, <?=$_SESSION['imie']?> </p><br>
-            <p>Ilość twoich ogłoszeń,  </p>
-             
+            <?php 
+            $sql = mysqli_connect('localhost', 'root', '', 'flep');
+            $witaj = $_SESSION['id'];
+            $zapytanie = "SELECT COUNT(id_ogloszenia) FROM ogloszenie WHERE id_uzytkownika = $witaj;";
+            $o = mysqli_query($sql, $zapytanie);  
+            while($as = mysqli_fetch_array($o)) $liczba = $as['COUNT(id_ogloszenia)'];
+            echo('<p>Liczba twoich ogłoszeń, '.$liczba.'</p>'); 
+            ?>
         </div>
     </div>
     <footer>

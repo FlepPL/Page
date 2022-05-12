@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
+    
 </head>
 <body>
     <header>
@@ -25,8 +26,8 @@
         </div>  
 
             <ul class="menu">
-                <a class="bottom" href="main.php">Strona Główna</a>
                 <a class="bottom" href="https://github.com/FlepPL">O nas</a>
+                <a class="bottom" href="login.php">Mój Flep</a>
                 <a class="bottom" href="announcements.php">Dodaj ogłoszenie</a>
             </ul>
             <button class="burger">
@@ -48,46 +49,55 @@
                     </script>
     </header>
     <nav>
-        <h1 class="text-nav">Mój Flep</h1>
+        <h1 class="text-nav">Ogłoszenia</h1>
     </nav>
+            
     <div id="ogloszenia">
-        <div id="login-window">
-            <ol class="login">
-                <li><a class="login-hover" href="login.php" >Zaloguj się </a></li>
-                <li><a class="login-hover" href="register.html" >Rejestracja</a></li>
-            </ol>
-            <div id="login-form">
-                <form action="register.php" method="POST" name="rejestr">
-                    <br>
-                    <p class="input-form" >Imie (Min. 3 znaki):</p> 
-                    <input class="input-form" type="text" name="name" id="name" required pattern=".{3,20}" > <br><br>
-                    <p class="input-form">Nazwisko (Min. 3 znaki):</p> 
-                    <input class="input-form" type="text" name="lastname" id="lastname" required pattern=".{3,20}" > <br><br>
-                    <p class="input-form">Data urodzenia:</p> 
-                    <input class="input-form" type="date" name="date" required> <br><br>
-                    <p class="input-form">E-mail (Min. 5 znaki, znak "@"):</p> 
-                    <input class="input-form" type="email" name="email" required pattern=".{3,30}" > <br><br>
-                    <p class="input-form">Numer telefonu:</p> 
-                    <input class="input-form" type="text" name="numer" placeholder="+48" required pattern=".{9,12}" > <br><br>
-                    <p class="input-form">Hasło (Min. 6 znaki):</p> 
-                    <input class="input-form" type="password" name="password" required pattern=".{6,25}" > <br><br>
-                    <div id="rest">
-                            <p style="font-size:smaller"> <input type="checkbox" name="agreement" required>
-                                Wyrażam zgodę na używanie przez Grupę FLEP sp. z o.o. środków komunikacji elektronicznej oraz
-                                telekomunikacyjnych urządzeń końcowych w celu przesyłania mi informacji handlowych oraz prowadzenia marketingu
-                                (np. newsletter, wiadomości SMS) przez Grupę FLEP sp. z o.o., podmioty powiązane i partnerów biznesowych.
-                                Moja zgoda obejmuje numery telefonów i adresy e-mail wykorzystywane podczas korzystania z usług Grupy FLEP Sp. z o.o. 
-                                Wyrażoną zgodę można wycofać lub ograniczyć w dowolnej chwili za pomocą odpowiednich ustawień konta lub zgłaszając
-                                nam takie żądanie.</p>
-                        <br>
-                        <input class="submit-form" id="submit" type="submit" value="Zarejestruj się" onClick="datacheck()">
+        <div class="container">
+            <?php
+                $szukaj =  $_GET['search'];
+                $sql = mysqli_connect('localhost', 'root', '', 'flep');
+                $pytanie = "SELECT COUNT(cena) FROM ogloszenie WHERE opis LIKE '%$szukaj%' ";
+                $sas = mysqli_query($sql, $pytanie); 
+                
+                while($wiersz = mysqli_fetch_array($sas)) $liczba = $wiersz['COUNT(cena)'];
+                
+                for ($a=1; $a<$liczba+1; $a++) {
+                    $zapytanie = "SELECT * FROM ogloszenie WHERE tytul LIKE '%$szukaj%';";
+                    $maks = mysqli_query($sql, $zapytanie);   
+                    while($laskowski = mysqli_fetch_array($maks)) {
+                        $id = $laskowski['id_ogloszenia'];
+                        $tytul = $laskowski['tytul'];
+                        $kategoria = $laskowski['kategoria'];
+                        $opis = $laskowski['opis'];
+                     }
+                           
+                    print("
+                    <div class='box'>
+                    <a class='sus' href='tak.php?id=$id'> 
+                    <h2>$tytul</h2>
+                    <h3>$kategoria</h3><hr><br>
+                    <p>$opis</p><br>
+                    <a class='sus2' href='tak.php?id=$id'> 
+                    Sprawdz
+                    </a>
                     </div>
-                </form>
-            </div>
+                    ");
+                }
+
+
+            ?>
+
         </div>
+
     </div>
+
+        <div id="rodo" onload="showrodo();">
+           <p>Ta strona używa cookie i innych technologii. Korzystając z niej wyrażasz zgodę na ich używanie, zgodnie z aktualnymi ustawieniami przeglądarki. Możesz je zmienić w dowolnym momencie <a href="https://docs.google.com/document/d/13MFTjvmuqyA2UvlPa4bpNi46N4FfNrQQHyfhD45Kscc/edit?usp=sharing">Szczegółowa polityka - RODO</a></a></p>
+           <input tpye="button" class="buttonrodo" onclick="closerodo()" value="Rozumiem">
+        </div>
     <footer>
-        <div id="footer-links">
+    <div id="footer-links">
             <a class="przyciski" href="https://docs.google.com/document/d/1T0hECqJWrENLCwvt8aeiGTExSJkGIKmbj9-BE4FJifE/edit?usp=sharing">Pomoc</a><br>
             <a class="przyciski" href="aboutus.html">Blog</a><br>
             <a class="przyciski" href="https://docs.google.com/document/d/1vS1vbRqMaGbBcUW11fQHK5V-q9R0OR5d_j2FJnSbMKg/edit?usp=sharing">Regulamin</a><br>
@@ -102,7 +112,7 @@
         <div id="footer-icons">
             <img alt="Google Play" class="link-to-app" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQYBOZ-3MyRTt6tELmeqRn6kNmrtbJpiT23dtUl0s6Un45WA34h">
             <img alt="Apple Store" class="link-to-app" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKPXGeVuLqCdqNDe5XDpg6bJraDyEAKo08ui_yXvnd2siTn_0n ">
-            <hr><p class="p-footer">Darmowa aplikacja na Twój telefon</p>
+            <hr><p class="p-footer">Darmowa aplikacja na Twój telefon</p> 
         </div>
     </footer> 
 </body>

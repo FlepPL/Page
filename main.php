@@ -22,6 +22,7 @@
             <form action="search.php" method="GET">
                 <input type="search" name="search" id="search-form" placeholder="Powiedz co chcesz znaleźć  " reqxuired="">
                 <input id="searchsubmit" type="submit" value="Znajdź">
+                
             </form>
         </div>  
 
@@ -66,18 +67,19 @@
                     $maks = mysqli_query($sql, $zapytanie);  
                     
                     while($laskowski = mysqli_fetch_array($maks)) {
+                        $id = $laskowski['id_ogloszenia'];
                         $tytul = $laskowski['tytul'];
                         $kategoria = $laskowski['kategoria'];
                         $opis = $laskowski['opis'];
                      }
                            
-                    echo("
+                    print("
                     <div class='box'>
-                    <a class='sus' href='tak.php?id=$a'> 
+                    <a class='sus' href='tak.php?id=$id'> 
                     <h2>$tytul</h2>
                     <h3>$kategoria</h3><hr><br>
                     <p>$opis</p><br>
-                    <a class='sus2' href='tak.php?id=$a'> 
+                    <a class='sus2' href='tak.php?id=$id'> 
                     Sprawdz
                     </a>
                     </div>

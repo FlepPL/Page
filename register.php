@@ -7,7 +7,8 @@
     $nazwisko = $_POST["lastname"]; 
     $email = $_POST["email"];
     $haslo = $_POST["password"];
-    $dodaj = "INSERT INTO uzytkownik (imie,nazwisko,email,haslo) VALUES ('".$imieAutora."', '".$nazwisko."', '".$email."', '".$haslo."');"; 
+    $telefon = $_POST["numer"];
+    $dodaj = "INSERT INTO uzytkownik (imie,nazwisko,email,telefon,haslo) VALUES ('".$imieAutora."', '".$nazwisko."', '".$email."',  '".$telefon."','".$haslo."');"; 
     $emailBob = "SELECT email FROM uzytkownik WHERE email = '$email';";
     $result = mysqli_query($sql, $emailBob); 
     if (mysqli_num_rows($result) == 0) {
@@ -16,7 +17,7 @@
         include 'main.php';
     }else{
         echo "<script type='text/javascript'>alert('Podany email jest już zarejestrowany');</script>";
-        include 'register.php';
+        include 'register.html';
     }
     mysqli_close($sql);
 ?>

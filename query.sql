@@ -15,7 +15,7 @@ CREATE TABLE uzytkownik(
     imie VARCHAR(30) NOT NULL,
     nazwisko VARCHAR(30) NOT NULL,
     email VARCHAR(50) NOT NULL,
-    telefon INT(9) NOT NULL,
+    telefon INT(12) NOT NULL,
     haslo VARCHAR(30) NOT NULL,
     zdjecia BLOB
 )
@@ -25,11 +25,11 @@ CREATE TABLE ogloszenie(
   telefon INT(9) NOT NULL,
   id_uzytkownika INT NOT NULL,
 	tytul VARCHAR(70) NOT NULL,
-  kategoria VARCHAR(15) NOT NULL,
+  kategoria VARCHAR(25) NOT NULL,
 	opis VARCHAR(1500) NOT NULL,
   lokalizacja VARCHAR(20) NOT NULL,
   cena FLOAT(6),
-  ogloszenie_telefon INT(9) NOT NULL,
+  ogloszenie_telefon INT(12) NOT NULL,
   zdjecia BLOB,
   data date 
 )
